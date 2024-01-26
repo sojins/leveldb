@@ -19,12 +19,20 @@
 #include "leveldb/write_batch.h"
 #include "util/logging.h"
 
+#include <filesystem>
+
 namespace leveldb {
 
 namespace {
 
 bool GuessType(const std::string& fname, FileType* type) {
-  size_t pos = fname.rfind('/');
+#if !_HAS_CXX17
+  const wchar_t seperator = L'/';
+#else
+  const wchar_t seperator = std::filesystem::path::preferred_separator;
+#endif
+  size_t pos = fname.rfind(seperator);
+
   std::string basename;
   if (pos == std::string::npos) {
     basename = fname;
