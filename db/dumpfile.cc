@@ -32,7 +32,9 @@ bool GuessType(const std::string& fname, FileType* type) {
   const wchar_t seperator = std::filesystem::path::preferred_separator;
 #endif
   size_t pos = fname.rfind(seperator);
-
+  if (pos == std::string::npos) {
+      pos = fname.rfind(L'/');
+  }
   std::string basename;
   if (pos == std::string::npos) {
     basename = fname;

@@ -6,3 +6,20 @@
 # Build directory.
 build/
 out/
+/202309_leveldb
+/202309_leveldb_a
+/leveldb_
+/leveldb_a
+/leveldb_hello
+/leveldb_b
+/LevelDBSample
+/LevelDBSample_a
+/leveldb_hello_a
+/main_leveldb
+*.zip
+/melon
+/melon_a
+/melon_dump
+/202309_leveldb_a_out.csv
+/202309_leveldb_a_out.sqlite
+examples/
